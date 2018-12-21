@@ -39,3 +39,31 @@ Episodic GP-SARSA for dialogue managers: [Gasic et al](http://mi.eng.cam.ac.uk/~
 - Covariance based Exploration for Gaussian Process( Active learning)
 - Stochastic exploration for Gaussian Process 
 
+**Sample Environment**: A sample **continuous maze** type environement is provided to test new implemented RL algorithms where the goal is to navigate a maze with obstacles to reach goal position. THe envionment can be used as  a testing playground. 
+
+---
+
+### Getting started
+
+To test a new HCI model with the above RL algorithms and policies, we can get started in a few lines of code. Modify the proposed reward structure, transiton model and episode terminal conditon in the **Environment Class** functions.  Then simply import the required policy,learner as below:
+'''
+env = Environment()
+learner = GP_SARSA()
+agent = Agent(env,learner)
+
+while(TerminalCondition!=True):
+
+  action=agent.getAction(state)
+  reward=env.getReward(state,action)
+  next_State=env.transition(state, action)
+  learner.learn(state,action,reward,next_State)
+'''
+
+4 sample experiments have been demonstrated in the **Experiment directory** detailing the above.
+
+---
+
+**Further updates:**
+- Adding multi kernel support from Gaussian process library [Gpy library](https://sheffieldml.github.io/GPy/) 
+- Implementation of Deep-Q with PO-MDP model 
+
