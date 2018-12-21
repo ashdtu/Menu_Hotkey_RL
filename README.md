@@ -1,33 +1,41 @@
-A reinforcement learning package to model Menu learning behavior in users.
+A **reinforcement learning** package to determine computationally rational strategy of navigating **Menu-Hotkey interfaces**.  
+> The package is intended to be used as a playground to test HCI models with general Reinforcement learning algorithms. Therefore, the package has been modularised into **4 main classes** to quickly experiment with model definitions and user strategies.  
 
-├── environments
-│   ├── cts_env.py
-│   ├── discrete_env.py
-│   └── testing_maze_environment.py
+**Agent**: Policy and decision making(Strategy)
 
-├── agents
-│   ├── baseline_gpsarsa.py
-│   ├── epsilon_greedy.py
-│   ├── gpsarsa_covariance_explorer.py
-│   └── softmax.py
+**Environment**:
+- defines Utility(Reward structure)
+- Ecology (observation definition)
+- Mechanism (Observation model,transition dynamics)
 
-├── learners
-│   ├── gpsarsa_baseline.py
-│   ├── gpsarsa_sparse.py
-│   ├── q_learner.py
-│   ├── q_learner_traces.py
-│   └── q_learn_n_step.py
+**Learner**: Learning algorithms 
 
-├── experiments
-│   ├── gpsarsa_covariance_explorer.py
-│   ├── gpsarsa_non_sparsified.py
-│   ├── q_learning_epsilon.py
-│   └── qlearning_softmax.py
+**Experiment**: Model training/testing and overall structure 
 
-├── plotting
-│   ├── Action_visualisation.py
-│   ├── misc.py
-│   ├── Q_func_visualisation.py
-│   └── rms_error.py
+---
 
+**Learning Algorithms:**
+
+A. Tabular model free methods (Discrete space):
+
+- Q-learning
+- SARSA
+- N-step TD backup
+- Eligibility traces with Q learning   
+
+B. Bayesian RL :
+
+- Gaussian Process-SARSA  (non-sparse version/computational constraints) 
+- Episodic GP-SARSA 	      (sparsified dictionary/fast) 
+
+Original GP-TD algortithm discussed here:  [Engel et. Al, 2005](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.81.6420&rep=rep1&type=pdf), Reinforcement learning with Gaussian processes.
+
+Episodic GP-SARSA for dialogue managers: [Gasic et al](http://mi.eng.cam.ac.uk/~sjy/papers/gayo14.pdf), Gaussian processes for POMDP-based dialogue manager optimisation
+
+
+**Policy(Agent):**
+- Epsilon-greedy Explora
+- Softmax 
+- Covariance based Exploration for Gaussian Process( Active learning)
+- Stochastic exploration for Gaussian Process 
 
