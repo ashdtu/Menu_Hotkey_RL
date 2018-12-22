@@ -34,7 +34,7 @@ Episodic GP-SARSA for dialogue managers: [Gasic et al](http://mi.eng.cam.ac.uk/~
 
 
 **Policy(Agent):**
-- Epsilon-greedy Explora
+- Epsilon-greedy Exploration
 - Softmax 
 - Covariance based Exploration for Gaussian Process( Active learning)
 - Stochastic exploration for Gaussian Process 
